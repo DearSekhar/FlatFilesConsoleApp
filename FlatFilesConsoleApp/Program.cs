@@ -53,6 +53,8 @@ switch (Console.ReadLine())
                 //string[] fields = line.Split(inputdelimeter);
                 dt.Rows.Add(line.Split(inputdelimeter));
             }
+            dt.DefaultView.Sort = "FavColor,LastName";
+            dt = dt.DefaultView.ToTable();
             string ouputJson;
             ouputJson = DataTableToJSONWithStringBuilder(dt);
             Console.WriteLine(ouputJson);
